@@ -1,0 +1,29 @@
+default:
+  tenant_id: ""       #11111111-1111-1111-1111-111111111111
+  subscription_id: "" #11111111-1111-1111-1111-111111111111
+  rg_name: "azustephencgiaks1-rg"
+  location: "canadacentral"
+
+acr:
+  name: "azustephencgiacr1"
+
+aks:
+  node_rg_name: "azustephencgiaks1-mc"
+  name: "azustephencgiaks1"
+  version: "1.29.7"
+  node_size: "Standard_B2s"
+
+build:
+  build_version:
+  app_src_path: "../app_src"
+  image_name: "cgi-demo"
+  build_version: "1.0.2" # MODIFY TO TRIGGER NEW DEPLOYMENT
+
+deploy:
+  namespace_name: "cgi-demo"
+  cpu_request: "250m"
+  memory_request_and_limit: "512Mi"
+  replicas: 2
+  port: 80
+  target_port: 5000
+  health_check_path: "/api/v1/timestamp"
