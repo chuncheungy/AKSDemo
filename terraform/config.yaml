@@ -14,7 +14,6 @@ aks:
   node_size: "Standard_B2s"
 
 build:
-  build_version:
   app_src_path: "../app_src"
   image_name: "cgi-demo"
   build_version: "1.0.2" # MODIFY TO TRIGGER NEW DEPLOYMENT
