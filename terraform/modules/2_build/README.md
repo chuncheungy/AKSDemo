@@ -34,3 +34,8 @@ No modules.
 
 No outputs.
 <!-- END_TF_DOCS -->
+
+### Notes
+This module uses a `local-exec` provisioner to build and push the Docker image.
+The provisioner invokes Bash via `/usr/bin/env bash` to ensure consistent
+behaviour across macOS and Linux systems.
